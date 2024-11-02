@@ -1,13 +1,14 @@
+import HomePage from "./components/templates/HomePage"
+import Layout from "./layouts/Layout"
 
 function App() {
 
   return (
-    <>
-      <div className="bg-red-500 min-h-screen w-screen p-5 ">
-        <p className='bg-white text-red-600 p-4 rounded  list-item list-inside' >hi</p>
+    <Layout>
+      <div className=" min-h-screen p-5 ">
+        <HomePage />
       </div>
-
-    </>
+    </Layout>
   )
 }
 
