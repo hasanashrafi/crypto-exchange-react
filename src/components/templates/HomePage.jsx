@@ -1,27 +1,53 @@
 import React, { useEffect, useState } from 'react'
 import TableCoin from '../modules/TableCoin';
-import { api_key, getCoinList } from '../../services/cryptoApi';
+import { getCoinList } from '../../services/cryptoApi';
+import Swipper from '../modules/Swipper';
+import NewsPage from '../NewsPage';
+import { LineWave } from 'react-loader-spinner';
 
 function HomePage() {
     const [coins, setCoins] = useState([])
-
+    const [loading, setLoading] = useState(false)
     useEffect(() => {
-        const options = {
-            method: 'GET',
-            headers: { accept: 'application/json', 'x-cg-demo-api-key': `${api_key}` }
-        };
-
-        fetch(getCoinList(), options)
-            .then((res) => res.json())
-            .then((json) => setCoins(json))
-            .catch((err) => console.error(err));
+        const getData = async () => {
+            const response = await fetch(getCoinList())
+            const data = await response.json()
+            setLoading(loading => !loading)
+            setCoins(data)
+        }
+        getData()
     }, [])
-    
-    return (
-        <div className='mx-auto p-2'>
-            <TableCoin coins={coins} />
-        </div>
 
+    return (
+        <div className=' mx-auto p-2'>
+
+            {loading ? (
+                <LineWave
+                    visible={true}
+                    height="100"
+                    width="100"
+                    color="#4fa94d"
+                    ariaLabel="line-wave-loading"
+                    wrapperStyle={{}}
+                    wrapperClass=""
+                    firstLineColor=""
+                    middleLineColor="#fdf9"
+                    lastLineColor=""
+                    
+                />) :
+                (
+                    <>
+
+                        <NewsPage />
+                        <Swipper coins={coins} />
+
+                        <TableCoin coins={coins} />
+
+                    </>
+                )}
+
+
+        </div>
     )
 }
 
