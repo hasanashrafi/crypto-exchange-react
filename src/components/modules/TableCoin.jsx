@@ -1,7 +1,7 @@
 import React from 'react';
 import TableRow from './TableRow';
 
-function TableCoin({ coins }) {
+function TableCoin({ coins ,currency}) {
     return (
         <div className="overflow-x-auto">
             <table className="min-w-full">
@@ -17,7 +17,11 @@ function TableCoin({ coins }) {
                 </thead>
                 <tbody>
                     {coins.map((coin) => (
-                        <TableRow key={coin.id} coin={coin} />
+                        <TableRow
+                         key={coin.id}
+                          coin={coin} 
+                          currency={currency}
+                          />
                     ))}
                 </tbody>
             </table>
