@@ -5,7 +5,7 @@ function App() {
 
   return (
     <Layout>
-      <div className="dark:bg-slate-800  min-h-screen p-5 ">
+      <div className="dark:bg-gray-900 min-h-screen p-5 ">
         <HomePage />
       </div>
     </Layout>
