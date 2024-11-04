@@ -12,8 +12,8 @@ function HomePage() {
         const getData = async () => {
             const response = await fetch(getCoinList())
             const data = await response.json()
-            setLoading(loading => !loading)
             setCoins(data)
+            setLoading((loading) => !loading)
         }
         getData()
     }, [])
@@ -31,7 +31,6 @@ function HomePage() {
 
                         <NewsPage />
                         <Swipper coins={coins} />
-
                         <TableCoin coins={coins} />
 
                     </>
