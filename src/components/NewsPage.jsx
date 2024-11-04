@@ -17,7 +17,7 @@ function NewsPage() {
 
     return (
         <>
-            <p className='text-center text-black font-extrabold text-2xl dark:text-white'>Crypto News</p>
+            <p className='text-center text-black font-semibold text-2xl dark:text-white'>Crypto News</p>
             <div className=' my-5 p-2  w-full flex items-center h-96 dark:text-white'>
                 {news?.length ? (
 
