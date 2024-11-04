@@ -3,7 +3,7 @@ import TableCoin from '../modules/TableCoin';
 import { getCoinList } from '../../services/cryptoApi';
 import Swipper from '../modules/Swipper';
 import NewsPage from '../NewsPage';
-import { LineWave } from 'react-loader-spinner';
+import Loader from '../modules/Loader';
 
 function HomePage() {
     const [coins, setCoins] = useState([])
@@ -22,19 +22,10 @@ function HomePage() {
         <div className=' mx-auto p-2'>
 
             {loading ? (
-                <LineWave
-                    visible={true}
-                    height="100"
-                    width="100"
-                    color="#4fa94d"
-                    ariaLabel="line-wave-loading"
-                    wrapperStyle={{}}
-                    wrapperClass=""
-                    firstLineColor=""
-                    middleLineColor="#fdf9"
-                    lastLineColor=""
-                    
-                />) :
+                <div className='flex items-center justify-center h-screen w-full  text-center'>
+                    <Loader />
+                </div>
+            ) :
                 (
                     <>
 
