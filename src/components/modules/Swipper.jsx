@@ -6,9 +6,7 @@ function Swipper({ coins }) {
     return (
         <div className='min-w-full   rounded-md my-5 flex items-center'>
             <Swiper
-
                 spaceBetween={5}
-
                 slidesPerView={1} // Default for small screens
                 breakpoints={{
                     640: {
@@ -20,8 +18,8 @@ function Swipper({ coins }) {
                 }}
                 className='flex w-full p-5'>
                 {coins.map(coin => (
-                    <SwiperSlide key={coin.id} style={{width:"fit-content"}}
-                    className='w-fit shadow-md  dark:bg-slate-700 bg-slate-300 rounded-lg m-2 text-center p-2'>
+                    <SwiperSlide key={coin.id} style={{ width: "fit-content" }}
+                        className='w-fit shadow-md  dark:bg-slate-700 bg-slate-300 rounded-lg m-2 text-center p-2'>
                         <div className='w-48 mx-auto flex items-center justify-between'>
                             <img src={coin.image} className=' w-12 rounded-full' alt={coin.name} />
                             <p className='text-black dark:text-white'>
@@ -34,7 +32,7 @@ function Swipper({ coins }) {
                     </SwiperSlide>
                 ))}
             </Swiper>
-        </div>
+        </div >
     );
 }
 
