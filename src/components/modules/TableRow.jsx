@@ -2,7 +2,9 @@ import React from 'react'
 import { formatNumber } from '../../utils/numberFormatter';
 import chartDown from "../../assets/chart-down.svg"
 import chartUp from "../../assets/chart-up.svg"
-function TableRow({ coin }) {
+import { PiCurrencyJpy } from 'react-icons/pi';
+import { FaEuroSign } from 'react-icons/fa';
+function TableRow({ coin, currency }) {
 
     const {
         id,
@@ -22,10 +24,25 @@ function TableRow({ coin }) {
                     <p className='text-lg  font-semibold'>{name}</p>
                 </div>
             </td>
-            <td className='text-gray-500'>{symbol.toUpperCase()}</td>
-            <td>$ {formatNumber(current_price)}</td>
-            <td className='text-blue-500'>$ {formatNumber(total_volume)}</td>
-            <td className={`${price_change_percentage_24h >= 0 ? "text-green-600" : "text-red-600"}`}>{price_change_percentage_24h.toFixed(2)} %</td>
+            <td className='text-gray-500'>
+                {symbol.toUpperCase()}
+            </td>
+            <td className='text-center'>
+                <div className='flex items-center gap-x-1 mx-auto justify-center'>
+                {currency === "usd" ? " $ " : null || currency === "eur" ? <FaEuroSign /> : null || currency === "jpy" ? <PiCurrencyJpy /> : null}
+                {formatNumber(current_price)}
+                </div>
+            </td>
+            <td className='text-blue-500 text-center   '>
+            <div className='flex items-center gap-x-1 justify-center mx-auto'>
+
+{currency === "usd" ? " $ " : null || currency === "eur" ? <FaEuroSign /> : null || currency === "jpy" ? <PiCurrencyJpy /> : null}
+                 {formatNumber(total_volume)}
+</div>
+            </td>
+            <td className={`${price_change_percentage_24h >= 0 ? "text-green-600" : "text-red-600"}`}>
+                {price_change_percentage_24h.toFixed(2)} %
+            </td>
             <td className='' >
                 {
                     <img className='mx-auto' src={price_change_percentage_24h > 0 ? chartUp : chartDown} />
