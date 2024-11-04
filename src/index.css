@@ -23,3 +23,12 @@ body {
 }
 
 
+.responsive-slide {
+  width: 318px;
+}
+
+@media (max-width: 630px) {
+  .responsive-slide {
+      width: 100%;
+  }
+}
