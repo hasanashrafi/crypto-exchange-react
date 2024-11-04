@@ -14,7 +14,7 @@ function Layout({ children }) {
     }
     return (
         <div className='' >
-            <header className='flex justify-between p-2 bg-blue-600 text-white items-center'>
+            <header className='flex justify-between p-2 px-5 dark:bg-gray-800 bg-blue-600 text-white items-center'>
                 <p className='text-lg'>Crypto </p>
                 <div className='flex items-center'>
                     <button onClick={darkHandler} className='m-2 text-3xl'>
@@ -26,11 +26,11 @@ function Layout({ children }) {
                                 <BiMoon className='' />
                         }
                     </button>
-                    <a href="#" className='bg-white rounded m-2 p-1 px-2 text-blue-700 hover:bg-blue-100 transition-all ease-in-out'>Github</a>
+                    <a href="#" className='bg-white rounded m-2 p-1 px-2  text-blue-700 hover:bg-blue-100 transition-all ease-in-out'>Github</a>
                 </div>
             </header>
             {children}
-            <footer className='p-2 bg-blue-600'>
+            <footer className=' dark:bg-gray-800 p-2 bg-blue-600'>
                 <p className='text-center'>Developed By HsN</p>
             </footer>
         </div>
