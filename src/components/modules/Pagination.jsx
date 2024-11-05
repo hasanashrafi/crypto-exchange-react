@@ -13,7 +13,6 @@ function Pagination({ page, setPage }) {
     }
 
 
-
     return (
         <div className=" p-2 mx-auto flex justify-center my-2 rounded-xl">
             <ul className="flex items-center">
@@ -86,7 +85,7 @@ function Pagination({ page, setPage }) {
                     </button>
                 </li>
             </ul>
-        </div >
+        </div>
     )
 }
 
