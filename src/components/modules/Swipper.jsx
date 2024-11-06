@@ -4,7 +4,7 @@ import 'swiper/css';
 
 function Swipper({ coins }) {
     return (
-        <div className='min-w-full   rounded-md my-5 flex items-center'>
+        <div className='min-w-full relative  rounded-md my-5 flex items-center'>
             <Swiper
                 spaceBetween={5}
                 slidesPerView={1} // Default for small screens
@@ -16,7 +16,7 @@ function Swipper({ coins }) {
                         slidesPerView: 3, // For larger screens
                     },
                 }}
-                className='flex w-full p-5'>
+                className='flex w-full -z-20 p-5 ' id='coin-swiper'>
                 {coins.map(coin => (
                     <SwiperSlide key={coin.id} style={{ width: "fit-content" }}
                         className='w-fit shadow-md  dark:bg-slate-700 bg-slate-300 rounded-lg m-2 text-center p-2'>
@@ -32,7 +32,7 @@ function Swipper({ coins }) {
                     </SwiperSlide>
                 ))}
             </Swiper>
-        </div >
+        </div>
     );
 }
 
