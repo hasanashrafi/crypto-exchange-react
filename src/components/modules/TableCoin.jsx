@@ -1,7 +1,7 @@
 import React from 'react';
 import TableRow from './TableRow';
 
-function TableCoin({ coins ,currency}) {
+function TableCoin({ coins ,currency,setChart}) {
     return (
         <div className="overflow-x-auto">
             <table className="min-w-full">
@@ -21,6 +21,7 @@ function TableCoin({ coins ,currency}) {
                          key={coin.id}
                           coin={coin} 
                           currency={currency}
+                          setChart={setChart}
                           />
                     ))}
                 </tbody>
