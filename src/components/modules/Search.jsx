@@ -36,7 +36,8 @@ function Search({ currency, setCurrency }) {
 
     return (
         <div className='w-full p-4 mb-10 text-center'>
-            <input
+           <div className='flex items-center'>
+           <input
                 value={text}
                 onChange={(e) => setText(e.target.value)}
                 className='border border-blue-500 p-1 rounded-md m-2 outline-none text-blue-600'
@@ -51,6 +52,8 @@ function Search({ currency, setCurrency }) {
                 <option value='eur'>EUR</option>
                 <option value='jpy'>JPY</option>
             </select>
+           </div>
+
 
             {loading ? (
                 <div className="flex justify-center w-full">
@@ -58,15 +61,14 @@ function Search({ currency, setCurrency }) {
                 </div>
             ) : (
                 searchResults.length > 0 && (
-                    <div className=' rounded  mx-auto grid grid-cols-4 mt-5'>
+                    <div className='w-full grid grid-cols-2 rounded  mx-auto mt-5'>
                         {searchResults.map((coin) => (
-                            <div key={coin.id} className='flex my-2  text-black dark:text-white  items-center justify-center p-2 border-b'>
+                            <div key={coin.id} className='flex mx-4  text-black dark:text-white  items-center justify-center p-2 border-b'>
                                 <img src={coin.thumb} alt={coin.name}
-                                 className='size-6 mr-1 rounded-full' />
-                                <div className=''>
+                                 className='size-7 mr-1 rounded-full' />
+                                
                                     <h3 className='text-sm'>{coin.symbol}</h3>
-
-                                </div>
+                                
                             </div>
                         ))}
                     </div>
