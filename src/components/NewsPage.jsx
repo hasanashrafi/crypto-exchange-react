@@ -22,6 +22,7 @@ function NewsPage() {
                 {news?.length ? (
 
                     <Swiper
+                        id='news-swiper'
                         spaceBetween={10}
                         slidesPerView={1} // Default for small screens
                         breakpoints={{
@@ -32,13 +33,16 @@ function NewsPage() {
                                 slidesPerView: 3, // For larger screens
                             },
                         }}>
+
                         {news && news.map((i) => (
                             <SwiperSlide key={i.id} style={{ width: "318px" }}
                                 className='responsive-slide'>
-                                <div className='w-full h-80 overflow-hidden p-4 border rounded-lg shadow-lg '>
-                                    <p className='text-sm font-semibold dark:text-white text-black text-wrap my-2'>{i.title}</p>
-                                    <img src={i.image_url} className=' w-full h-48   rounded-md' alt={i.title} />
-                                </div>
+                                <a href={i.article_url} target='_blank'>
+                                    <div className='w-full h-80 overflow-hidden p-4 border rounded-lg shadow-lg '>
+                                        <p className='text-sm font-semibold dark:text-white text-gray-400 text-wrap my-2'>{i.title}</p>
+                                        <img src={i.image_url} className=' w-full h-48   rounded-md' alt={i.title} />
+                                    </div>
+                                </a>
                             </SwiperSlide>
                         ))}
                     </Swiper>) : (
