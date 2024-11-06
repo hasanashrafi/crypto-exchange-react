@@ -35,7 +35,7 @@ function Search({ currency, setCurrency }) {
     };
 
     return (
-        <div className=' mb-10 text-center'>
+        <div className='w-full p-4 mb-10 text-center'>
             <input
                 value={text}
                 onChange={(e) => setText(e.target.value)}
@@ -62,7 +62,7 @@ function Search({ currency, setCurrency }) {
                         {searchResults.map((coin) => (
                             <div key={coin.id} className='flex  text-black dark:text-white  items-center justify-center p-2 border-b'>
                                 <img src={coin.thumb} alt={coin.name}
-                                 className='size-6 mr-5 rounded-full' />
+                                 className='size-6 mr-1 rounded-full' />
                                 <div className=''>
                                     <h3 className='text-sm'>{coin.symbol}</h3>
 
