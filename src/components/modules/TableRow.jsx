@@ -4,7 +4,8 @@ import chartDown from "../../assets/chart-down.svg"
 import chartUp from "../../assets/chart-up.svg"
 import { PiCurrencyJpy } from 'react-icons/pi';
 import { FaEuroSign } from 'react-icons/fa';
-function TableRow({ coin, currency }) {
+import { marketChart } from '../../services/cryptoApi';
+function TableRow({ coin, currency, setChart }) {
 
     const {
         id,
@@ -16,9 +17,20 @@ function TableRow({ coin, currency }) {
         total_volume,
     } = coin;
 
+    const showHandler = async () => {
+        try {
+            const res = await fetch(marketChart(id))
+            const data = await res.json()
+            setChart({ ...data, coin })
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
     return (
         <tr className='w-full dark:text-white text-blue-900 border-b-2  text-center'>
-            <td className='p-2 my-2'>
+            <td className='p-2 my-2 cursor-pointer'
+                onClick={showHandler}>
                 <div className='flex items-center  gap-x-3 px-3 my-3 text-center ju'>
                     <img src={image} className='w-7 rounded-full' />
                     <p className='text-lg  font-semibold'>{name}</p>
@@ -29,16 +41,16 @@ function TableRow({ coin, currency }) {
             </td>
             <td className='text-center'>
                 <div className='flex items-center gap-x-1 mx-auto justify-center'>
-                {currency === "usd" ? " $ " : null || currency === "eur" ? <FaEuroSign /> : null || currency === "jpy" ? <PiCurrencyJpy /> : null}
-                {formatNumber(current_price)}
+                    {currency === "usd" ? " $ " : null || currency === "eur" ? <FaEuroSign /> : null || currency === "jpy" ? <PiCurrencyJpy /> : null}
+                    {formatNumber(current_price)}
                 </div>
             </td>
             <td className='text-blue-500 text-center   '>
-            <div className='flex items-center gap-x-1 justify-center mx-auto'>
+                <div className='flex items-center gap-x-1 justify-center mx-auto'>
 
-{currency === "usd" ? " $ " : null || currency === "eur" ? <FaEuroSign /> : null || currency === "jpy" ? <PiCurrencyJpy /> : null}
-                 {formatNumber(total_volume)}
-</div>
+                    {currency === "usd" ? " $ " : null || currency === "eur" ? <FaEuroSign /> : null || currency === "jpy" ? <PiCurrencyJpy /> : null}
+                    {formatNumber(total_volume)}
+                </div>
             </td>
             <td className={`${price_change_percentage_24h >= 0 ? "text-green-600" : "text-red-600"}`}>
                 {price_change_percentage_24h.toFixed(2)} %
