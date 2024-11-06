@@ -6,7 +6,6 @@ import { CartesianGrid, Legend, Line, LineChart, ResponsiveContainer, Tooltip, X
 function Chart({ chart, setChart }) {
     const [type, setType] = useState('prices')
 
-    console.log(chart)
     const closeChartHandler = () => {
         setChart(false)
     }
