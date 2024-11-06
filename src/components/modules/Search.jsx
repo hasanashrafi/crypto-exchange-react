@@ -60,7 +60,7 @@ function Search({ currency, setCurrency }) {
                 searchResults.length > 0 && (
                     <div className=' rounded  mx-auto grid grid-cols-4 mt-5'>
                         {searchResults.map((coin) => (
-                            <div key={coin.id} className='flex  text-black dark:text-white  items-center justify-center p-2 border-b'>
+                            <div key={coin.id} className='flex my-2  text-black dark:text-white  items-center justify-center p-2 border-b'>
                                 <img src={coin.thumb} alt={coin.name}
                                  className='size-6 mr-1 rounded-full' />
                                 <div className=''>
